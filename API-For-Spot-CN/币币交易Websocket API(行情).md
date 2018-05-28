@@ -25,7 +25,6 @@ websocket.send("{ 'event':'addChannel', 'channel':'lh_sub_spot_X_btc_trades' }")
 ```
 
 
-
 示例	
 
 ```javascript
