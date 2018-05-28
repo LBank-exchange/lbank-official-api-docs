@@ -67,6 +67,8 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 ```
 
 返回值说明	
+
+
 |字段|描述|
 |-|-|
 |result | `true` 代表成功返回 |
