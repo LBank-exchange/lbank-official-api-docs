@@ -11,6 +11,9 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 
 **_PS：当前LBank WebSocket API提供的行情服务接口无需进行安全认证。_**
 
+## 请求交互    
+
+访问的根URL：`ws://api.lbank.info/ws`，访问时需要科学上网
 
 ### 行情 API
 
