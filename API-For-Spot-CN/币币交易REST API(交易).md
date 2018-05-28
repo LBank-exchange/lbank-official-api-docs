@@ -29,7 +29,6 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 1.获取用户账户资产信息 
 
-> URL: `http://api.lbank.info/v1/user_info.do`
 
 请求参数	
 
