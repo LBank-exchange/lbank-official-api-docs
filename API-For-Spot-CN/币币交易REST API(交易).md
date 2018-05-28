@@ -83,9 +83,9 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|是|用户申请的 `api_key`|
-|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |type|String|是|委托买卖类型<br>限价单：`buy/sell`<br>市价单：`buy_market/sell_market` |
-|price|String|参考描述|下单价格<br>限价买单和卖单：`大于等于0`<br>市价买单：`BTC`交易最少买入 `0.001` 个BTC 的金额 (金额>0.01*卖一价)<br>市价卖单不传此参数且无需加密 `sign` |
+|price|String|参考描述|下单价格<br>限价买单和卖单：`大于等于0`<br>市价买单：`BTC`交易最少买入 `0.001` 个BTC 的金额 (金额>0.01*卖一价)<br>市价卖单不传此参数且无需加密 `sign` |
 |amount|String|参考描述 |交易数量 <br>限价卖单和卖单：`BTC` 数量大于等于 `0.001`<br>市价买单不传且需加密`sign`|
 |sign|String|是|请求参数的签名|
 
@@ -125,7 +125,7 @@ POST http://api.lbank.info/v1/create_order.do
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|是|用户申请的 `api_key`|
-|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |order_id|String|是|订单id<br>多个订单 `order_id1,order_id2`, 订单个数限制 `1-3` |
 |sign|String|是|请求参数的签名|
 
@@ -167,7 +167,7 @@ POST http://api.lbank.info/v1/cancel_order.do
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|是|用户申请的 `api_key`|
-|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |order_id|String|是|订单id<br>多个订单 `order_id1,order_id2`, 订单个数限制 `1-3` |
 |sign|String|是|请求参数的签名|
 
@@ -224,7 +224,7 @@ POST http://api.lbank.info/v1/orders_info.do
 |create_time|委托时间|
 |price|限价单：委托价格 <br> 市价单：市价单的cny金额|
 |avg_price|平均成交价|
-|type|`buy`：限价买入<br>`sell`：限价卖出<br>`buy_market`：市价买入 <br>`sell_market`：市价卖出
+|type|`buy`：限价买入<br>`sell`：限价卖出<br>`buy_market`：市价买入 <br>`sell_market`：市价卖出
 |deal_amount|成交数量|
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 
@@ -237,7 +237,7 @@ POST http://api.lbank.info/v1/orders_info.do
 | :-----    | :-----   | :-----    | :-----   |
 |sign|String|是|请求参数的签名|
 |api_key|String|是|用户申请的 `api_key`|
-|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |current_page|String|是|当前页码|
 |page_length|String|是|每页数据条数（不得小于1,不得大于200）|
 
@@ -299,7 +299,7 @@ POST http://api.lbank.info/v1/orders_info_history.do
 |orders|查询的订单集合| 
 |price|限价单：委托价格 <br> 市价单：市价单的cny金额|
 |avg_price|平均成交价|
-|type|`buy`：限价买入<br>`sell`：限价卖出<br>`buy_market`：市价买入 <br>`sell_market`：市价卖出
+|type|`buy`：限价买入<br>`sell`：限价卖出<br>`buy_market`：市价买入 <br>`sell_market`：市价卖出
 |deal_amount|成交数量|
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 |current_page|当前页码|
