@@ -110,6 +110,7 @@ POST http://api.lbank.info/v1/create_order.do
 
 返回值说明	
 
+
 |字段|描述|
 |-|-|
 |result|`true` 成功<br>`false` 失败 |
@@ -118,6 +119,7 @@ POST http://api.lbank.info/v1/create_order.do
 2.撤销订单 
 
 请求参数	
+
 
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
@@ -147,6 +149,8 @@ POST http://api.lbank.info/v1/cancel_order.do
 ```
 
 返回值说明	
+
+
 |字段|描述|
 |-|-|
 |result | `true` 撤单成功，等待系统执行撤单<br>`false` 撤单失败（用于单笔订单） |
@@ -224,6 +228,7 @@ POST http://api.lbank.info/v1/orders_info.do
 
 请求参数	
 
+
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
 |sign|String|是|请求参数的签名|
@@ -278,6 +283,8 @@ POST http://api.lbank.info/v1/orders_info_history.do
 }
 ```
 返回值说明	
+
+
 |字段|描述|
 |-|-|
 |result | `true` 成功<br>`false` 失败|
