@@ -111,8 +111,8 @@ POST http://api.lbank.info/v1/create_order.do
 返回值说明	
 
 |字段|描述|
-| :-----    | :-----   |
-|result | `true` 成功<br>`false` 失败 |
+|-|-|
+|result|`true` 成功<br>`false` 失败 |
 |order_id|订单ID| 
 
 2.撤销订单 
