@@ -2,9 +2,9 @@
 
 ## API概述    
 
-用户提供简单而又强大的API接口服务，旨在帮助用户快速高效的将LBank（lbank.info）交易功能整合到自己应用当中。
+用户提供简单而又强大的API接口服务，旨在帮助用户快速高效的将 LBank（lbank.info）交易功能整合到自己应用当中。
 
-通过API您可以快速实现如下功能   
+通过 `API` 您可以快速实现如下功能   
 > - 市场最新行情    
 > - 交易信息    
 > - 账户信息  
@@ -13,7 +13,7 @@
 > - 快速买进卖出    
 > - 撤销订单    
 
-所有请求基于`https`协议，请求头信息中`contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根`URL`：`https://api.lbank.info/` 
+所有请求基于 `http` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`http://api.lbank.info/` 
 
 例如：
 ```javascript
@@ -44,13 +44,13 @@ WebSocket是HTML5一种新的协议(Protocol)。它实现了客户端与服务�
 >- 客户端和服务器皆可以主动地发送数据给对方；    
 >- 不需要多次创建TCP请求和销毁，节约宽带和服务器的资源。    
 
-**强烈建议开发者使用WebSocket API获取市场行情和买卖深度等信息。**
+**_强烈建议开发者使用WebSocket API获取市场行情和买卖深度等信息。_**
 
 ## 开启API权限    
 
 用户的API权限在网站的`安全->API`内获取。点击`申请API`即可获得，其中`apiKey`是LBank提供给API用户的访问密钥，`secretKey`用于对请求参数签名的私钥。    
 
-**注意： 请勿向任何人泄露这两个参数，这两个参数关乎您账号的安全。**    
+**_注意： 请勿向任何人泄露这两个参数，这两个参数关乎您账号的安全。_**    
      
 ## 生成待签名字符串
 
@@ -80,6 +80,6 @@ amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc
 amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc&type=buy&secret_key=secretKey 
 ```
 
-**注意`&secret_key=secretKey` 为签名必要参数。**
+**_注意`&secret_key=secretKey` 为签名必要参数。_**
 
 利用32位MD5算法 对最终待签名字符串进行签名运算,从而得到签名结果字符串(该字符串赋值于参数`sign`)，MD5计算结果中字母全部大写。
