@@ -119,3 +119,97 @@ websocket.send("{' event':'addChannel', 'channel':'lh_sub_spot_X_btc_depth_Y' }"
 |bids|买方深度|
 |timestamp|服务器时间戳|
 
+3. lh_sub_spot_X_btc_trades    订阅行情数据
+
+```javascript
+// X值为：btc, zec
+wwebsocket.send("{ 'event':'addChannel', 'channel':'lh_sub_spot_X_btc_trades' }"); 
+```
+
+示例	
+
+```javascript
+# Request
+{
+  "event":'addChannel',
+  "channel":'lh_sub_spot_eth_btc_trades'
+}
+# Response
+{
+  "data":[
+    [
+      "694481a4e8954c31a36c90b114d8dcd8",
+      "7043.57",
+      "1.0524",
+      "1483410480021",
+      "buy"
+    ],
+    [
+      "5258c4d6d5e7494fbcba467a5614a9c6",
+      "6955.6914",
+      "1.0869",
+      "1483409918273",
+      "sell"
+    ]
+  ],
+  "channel":"lh_sub_spot_eth_btc_trades"
+}
+```
+
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|694481a4e8954c31a36c90b114d8dcd8|交易流水号|
+|7043.57|价格|
+|1.0524|成交量|
+|1483410480021|时间|
+|Buy/sell|买卖类型|
+
+
+4. lh_sub_spot_X_btc_kline_Y    订阅行情数据
+
+```javascript
+/*
+X值为：btc, zec
+X值为：Y值为：1minute, 5minute, 10minute, 15minute, 30minute, 1hour, 2hour, 4hour, 6hour, 8hour,12hour,1day, 1week, 1month, 1year
+*/
+wwebsocket.send("{ 'event':'addChannel', 'channel':'lh_sub_spot_X_btc_trades' }"); 
+```
+
+示例	
+
+```javascript
+# Request
+{
+  "event":'addChannel',
+  "channel":'lh_sub_spot_eth_btc_kline_1day'
+}
+# Response
+{
+  "data":[
+    [
+      1483459200000,
+      7377.82,
+      7722.88,
+      7348.30,
+      7675.15,
+      1339.5527
+    ]
+  ],
+  "data":"lh_sub_spot_eth_btc_kline_1day"
+}
+```
+
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|1483459200000|时间戳|
+|7377.82|开|
+|7722.88|高|
+|7348.30|低|
+|7675.15|收|
+|1339.5527|交易量|
