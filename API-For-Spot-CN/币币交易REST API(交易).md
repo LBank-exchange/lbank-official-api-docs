@@ -70,8 +70,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 |字段|描述|
 |-|-|
-|result | `true` 代表成功返回 |
-|false |代表返回失败 |
+|result | `true` 代表成功返回<br> `false` 代表返回失败 |
 |asset |账户总资产 |
 |freeze |账户冻结余额 |
 |free |账户可用余额|
@@ -306,3 +305,104 @@ POST http://api.lbank.info/v1/orders_info_history.do
 |current_page|当前页码|
 |page_length|每页数据条数|
 |total|该查询状态的总记录数|
+
+
+
+3.获取所有币对的基本信息
+
+请求参数：`无`
+
+
+请求示例:	
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/accuracy.do
+
+# Response
+[
+  {
+    "priceAccuracy": "2",
+    "quantityAccuracy": "4",
+    "symbol": "pch_usdt"
+  }
+]
+```
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|priceAccuracy |价格精度|
+|quantityAccuracy |数量精度|
+|symbol|交易对|
+
+
+4.获取用户开放订单
+
+请求参数：
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|是|用户申请的 `api_key`|
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|current_page|String|是|当前页码|
+|page_length|String|是|每页数据条数（不得小于1,不得大于200）|
+|sign|String|是|请求参数的签名|
+
+
+请求示例:	
+
+```javascript
+# Request
+POST http://api.lbank.info/v1/orders_info_no_deal.do
+{
+  "api_key": "sijnvsvodnvow928492fh2938fh92348f",
+  "symbol": "eth_btc",
+  "current_page":"1",
+  "page_length":"100",
+  "sign":"iuhviuviuhviuerh92834fheifhw98f39r8g3rhf"
+}
+
+# Response
+{
+  'page_length': 100, 
+  'current_page': 1, 
+  'total': 1, 
+  'result': true,
+  'orders': [
+    {
+      'status': 0,
+      'custom_id': None, 
+      'order_id': 'a7de8dae-16a3-416b-8fc9-e3bb88e0d819', 
+      'price': 0.015, 
+      'amount': 100.0, 
+      'create_time': 1527498699770, 
+      'avg_price': 0.0, 
+      'type': 'sell',
+      'symbol': 'eth_btc', 
+      'deal_amount': 0.0
+    }
+  ]
+}
+```
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|page_length |每页数据条数|
+|current_page |当前页码|
+|total|总页数|
+|result | `true` 代表成功返回<br> `false` 代表返回失败 |
+|status | `0` 代表未成交 <br> `1` 部分成交|
+|custom_id | 用户发单请求是自定义字段|
+|order_id | 订单号 |
+|price | 价格 |
+|amount | 数量 |
+|create_time | 挂单时间 |
+|avg_price | 平均成交价 |
+|type | 订单类型<br>`sell` 卖单 <br> `buy` 买单 |
+|symbol | 交易对 |
+|deal_amount|成交数量|
