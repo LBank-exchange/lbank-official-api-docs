@@ -397,7 +397,7 @@ POST http://api.lbank.info/v1/orders_info_no_deal.do
 |total|总页数|
 |result | `true` 代表成功返回<br> `false` 代表返回失败 |
 |status | `0` 代表未成交 <br> `1` 部分成交|
-|custom_id | 用户发单请求是自定义字段|
+|custom_id | 用户发单请求时自定义字段|
 |order_id | 订单号 |
 |price | 价格 |
 |amount | 数量 |
