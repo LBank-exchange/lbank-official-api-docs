@@ -249,7 +249,6 @@ POST http://api.lbank.info/v1/orders_info_history.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "symbol"："eth_btc",
-  "status"："0",
   "current_page"："1",
   "page_length"："100",
   "sign"："16702619-0bc8-446d-a3d0-62fb67a8985e",
