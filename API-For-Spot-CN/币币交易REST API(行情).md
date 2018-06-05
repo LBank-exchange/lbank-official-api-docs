@@ -248,8 +248,8 @@ URL: `http://api.lbank.info/v1/kline.do`
 | :-----    | :-----   | :-----    | :-----   |
 |symbol|String|是|币对如 `eth_btc`|
 |size|Integer|是|返回的条数(1-2880)|
-|type|String|是|`minute1`：1分钟<br>`minute5`：5分钟<br>`minute15`：15分钟<br>`minute30`：30分钟<br>`hour1`：1小时<br>`hour2`：2小时<br>`hour4`：4小时<br>`hour6`：6小时<br>`hour8`：8小时<br>`hour12`：12小时<br>`day1`：1日<br>`week1`：1周<br>|
-|time|String|否|时间戳 (为空则返回当前最新 `size` 条数据,填写则返回时间戳之后的 `size` 条数据)
+|type|String|是|`minute1`：1分钟<br>`minute5`：5分钟<br>`minute15`：15分钟<br>`minute30`：30分钟<br>`hour1`：1小时<br>`hour4`：4小时<br>`hour8`：8小时<br>`hour12`：12小时<br>`day1`：1日<br>`week1`：1周<br>|
+|time|String|是|时间戳 (精确到秒)
 
 请求示例
 ```javascript
@@ -259,7 +259,7 @@ GET http://api.lbank.info/v1/trades.do
   "symbol"："eth_btc",
   "size"："600",
   "type"："minute1",
-  "time"："1482311600000"
+  "time"："1482311600"
 }
 # Response
 [
