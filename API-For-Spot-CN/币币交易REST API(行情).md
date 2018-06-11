@@ -254,7 +254,7 @@ URL: `http://api.lbank.info/v1/kline.do`
 请求示例
 ```javascript
 # Request
-GET http://api.lbank.info/v1/trades.do
+GET http://api.lbank.info/v1/kline.do
 {
   "symbol"："eth_btc",
   "size"："600",
