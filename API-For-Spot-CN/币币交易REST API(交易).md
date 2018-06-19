@@ -228,7 +228,7 @@ POST http://api.lbank.info/v1/orders_info.do
 |deal_amount|成交数量|
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 
-3.查询订单历史 
+3.查询订单历史（仅支持查最近两天内的历史订单）
 
 请求参数	
 
@@ -307,7 +307,7 @@ POST http://api.lbank.info/v1/orders_info_history.do
 
 
 
-3.获取所有币对的基本信息
+4.获取所有币对的基本信息
 
 请求参数：`无`
 
@@ -337,7 +337,7 @@ POST http://api.lbank.info/v1/orders_info_history.do
 |symbol|交易对|
 
 
-4.获取用户开放订单
+5.获取用户开放订单（仅支持查最近两天内的开放订单）
 
 请求参数：
 
