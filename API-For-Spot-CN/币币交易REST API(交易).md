@@ -408,9 +408,9 @@ POST http://api.lbank.info/v1/orders_info_no_deal.do
 
 6.美元对人民币的比例（每天0点更新一次）
 
-请求参数：无
+请求参数:无
 
-请求示例:	
+请求示例:
 
 ```javascript
 # Request
@@ -419,7 +419,7 @@ GET http://api.lbank.info/v1/usdToCny.do
 # Response
 {"USD2CNY":"6.4801"}
 ```
-返回值说明：	
+返回值说明:
 
 |字段|描述|
 |-|-|
