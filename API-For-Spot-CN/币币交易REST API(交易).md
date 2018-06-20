@@ -405,3 +405,23 @@ POST http://api.lbank.info/v1/orders_info_no_deal.do
 |type | 订单类型<br>`sell` 卖单 <br> `buy` 买单 |
 |symbol | 交易对 |
 |deal_amount|成交数量|
+
+6.美元对人民币的比例（每天0点更新一次）
+
+请求参数：无
+
+请求示例:	
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/usdToCny.do
+
+# Response
+{"USD2CNY":"6.4801"}
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|USD2CNY |美元对人民币的汇率|
+
