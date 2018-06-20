@@ -418,8 +418,8 @@ GET http://api.lbank.info/v1/usdToCny.do
 
 # Response
 {"USD2CNY":"6.4801"}
-返回值说明	
-
+```
+返回值说明：	
 
 |字段|描述|
 |-|-|
