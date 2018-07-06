@@ -409,6 +409,7 @@ POST http://api.lbank.info/v1/orders_info_no_deal.do
 6.美元对人民币的比例（每天0点更新一次）
 
 请求参数:无
+请求方式：GET
 
 请求示例:
 
@@ -424,4 +425,164 @@ GET http://api.lbank.info/v1/usdToCny.do
 |字段|描述|
 |-|-|
 |USD2CNY |美元对人民币的汇率|
+
+7.币种提币参数接口
+
+请求参数:
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|assetCode|String|否|币种编号|
+
+请求方式：GET
+
+
+请求示例:
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/withdrawConfigs.do
+
+# Response
+[{'assetCode': 'eth', 'min': '0.01', 'canWithDraw': True, 'fee': '0.01'}]
+```
+返回值说明:
+
+|字段|描述|
+|-|-|
+|assetCode |币种编号|
+|min |最小提币数量|
+|canWithDraw |该币种是否可提|
+|fee |提币手续费（数量）|
+
+8.提币接口
+
+请求参数:
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|是|用户申请的 `api_key`|
+|sign|String|是|参数签名|
+|account|String|是|提币地址|
+|assetCode|String|是|提币币种|
+|amount|String|是|提币数量（对于neo，必须是整数）|
+|memo|String|否|对于bts、dct可能需要|
+|mark|String|否|用户备注(长度小于255)|
+|fee|String|否|提币手续费（单位：数量）|
+
+请求方式：POST
+
+
+请求示例:
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/withdraw.do
+
+# Response
+{'result': 'true', 'withdrawId': 90082, 'fee':0.001}
+```
+返回值说明:
+
+|字段|描述|
+|-|-|
+|result |true：成功，false：失败|
+|withdrawId |当前提币记录编号|
+|fee |提币手续费（数量）|
+
+
+9.撤销提币接口
+
+请求参数:
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|是|用户申请的 `api_key`|
+|sign|String|是|参数签名|
+|withdrawId|String|是|提币记录编号|
+
+请求方式：POST
+
+
+请求示例:
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/withdrawCancel.do
+
+# Response
+{'result': 'true', 'withdrawId': '90083'}
+```
+返回值说明:
+
+|字段|描述|
+|-|-|
+|result |true：成功，false：失败|
+|withdrawId |当前提币记录编号|
+
+
+10.提币记录接口
+
+请求参数:
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|是|用户申请的 `api_key`|
+|sign|String|是|参数签名|
+|assetCode|String|否|币种编号|
+|status|String|是|提币状态（0：全部，1：申请中，2：已撤销，3：提现失败，4：提现完成）|
+|pageNo|String|否|当前分页页码（默认：1）|
+|pageSize|String|否|每页大小（默认：20，最大100条）|
+
+
+请求方式：POST
+
+
+请求示例:
+
+```javascript
+# Request
+GET http://api.lbank.info/v1/withdraws.do
+
+# Response
+{
+	'totalPages': 1,
+	'pageSize': 20,
+	'pageNo': 1
+	'list': [{
+		'amount': 20.0,
+		'assetCode': 'btc',
+		'address': 'erfwergertghrehyrhethyryuj',
+		'fee': 0.0,
+		'id': 89686,
+		'time': 1525750028000,
+		'txHash': '',
+		'status': '2'
+	}, {
+		'amount': 335.0,
+		'assetCode': 'btc',
+		'address': 'erfwergertghrehyrhethyryuj',
+		'fee': 0.0,
+		'id': 89687,
+		'time': 1525767979000,
+		'txHash': '',
+		'status': '2'
+	}
+	....]
+}
+```
+返回值说明:
+
+|字段|描述|
+|-|-|
+|totalPage |总的页数|
+|pageSize |每页大小|
+|pageNo|当前页码|
+|list |列表数据（id:提币记录编号，assetCode:币种编号，address: 提币地址，amount：提币数量，fee：提币手续费，time：提币时间，txHash：提币hash，status：提币状态）|
+
+
 
