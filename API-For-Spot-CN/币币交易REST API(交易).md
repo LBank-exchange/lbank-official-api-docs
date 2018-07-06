@@ -316,7 +316,7 @@ POST http://api.lbank.info/v1/orders_info_history.do
 
 ```javascript
 # Request
-GET http://api.lbank.info/v1/accuracy.do
+GET http://api.lbank.info/v1/accuracy.do
 
 # Response
 [
@@ -428,6 +428,7 @@ GET http://api.lbank.info/v1/usdToCny.do
 
 7.币种提币参数接口
 
+
 请求参数:
 
 
@@ -456,7 +457,7 @@ GET http://api.lbank.info/v1/withdrawConfigs.do
 |canWithDraw |该币种是否可提|
 |fee |提币手续费（数量）|
 
-8.提币接口
+8.提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -493,7 +494,7 @@ GET http://api.lbank.info/v1/withdraw.do
 |fee |提币手续费（数量）|
 
 
-9.撤销提币接口
+9.撤销提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -524,7 +525,7 @@ GET http://api.lbank.info/v1/withdrawCancel.do
 |withdrawId |当前提币记录编号|
 
 
-10.提币记录接口
+10.提币记录接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
