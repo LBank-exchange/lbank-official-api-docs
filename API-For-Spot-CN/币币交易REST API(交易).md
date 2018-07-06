@@ -480,7 +480,7 @@ GET http://api.lbank.info/v1/withdrawConfigs.do
 
 ```javascript
 # Request
-GET http://api.lbank.info/v1/withdraw.do
+POST http://api.lbank.info/v1/withdraw.do
 
 # Response
 {'result': 'true', 'withdrawId': 90082, 'fee':0.001}
@@ -512,7 +512,7 @@ GET http://api.lbank.info/v1/withdraw.do
 
 ```javascript
 # Request
-GET http://api.lbank.info/v1/withdrawCancel.do
+POST http://api.lbank.info/v1/withdrawCancel.do
 
 # Response
 {'result': 'true', 'withdrawId': '90083'}
@@ -547,7 +547,7 @@ GET http://api.lbank.info/v1/withdrawCancel.do
 
 ```javascript
 # Request
-GET http://api.lbank.info/v1/withdraws.do
+POST http://api.lbank.info/v1/withdraws.do
 
 # Response
 {
