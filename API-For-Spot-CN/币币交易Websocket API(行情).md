@@ -17,7 +17,6 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 ==================
 
 1. 访问地址
-    ws://47.52.110.164/ws/V2/
     ws://api.lbank.info/ws/V2/
 
 
@@ -42,10 +41,10 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
     PING消息后，也会回应对应端PONG消息。
 
     一条标准的ping消息格式如下：
-    {'action': 'ping', 'ping': '0ca8f854-7ba7-4341-9d86-d3327e52804e'}
+    {"action": "ping", "ping": "0ca8f854-7ba7-4341-9d86-d3327e52804e"}
 
     收到该消息后，用户应该立刻回应对pong消息：
-    {'action': 'pong', 'pong': '0ca8f854-7ba7-4341-9d86-d3327e52804e'}
+    {"action": "pong", "pong": "0ca8f854-7ba7-4341-9d86-d3327e52804e"}
     其中，pong字段必需和收到对ping消息字段完全一致。
 
     ** 如果超过一分钟没有回应任何PING消息，连接会被自动关闭。 **
@@ -66,16 +65,16 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 
     以下是一些订阅数据的例子：
     订阅eth/btc交易对的5min K线：
-    {'action': 'subscribe', 'subscribe': 'kbar', 'kbar': '5min', 'pair': 'eth_btc'}
+    {"action": "subscribe", "subscribe": "kbar", "kbar": "5min", "pair": "eth_btc"}
 
     订阅dax/eth交易对的深度数据（深度10）：
-    {'action': 'subscribe', 'subscribe': 'depth', 'depth': 10, 'pair': 'dax_eth'}
+    {"action": "subscribe", "subscribe": "depth", "depth": 10, "pair": "dax_eth"}
 
     订阅btc/usdt交易对的交易记录：
-    {'action': 'subscribe', 'subscribe': 'trade', 'pair': 'btc_usdt'}
+    {"action": "subscribe", "subscribe": "trade", "pair": "btc_usdt"}
 
     订阅vtho/eth交易对的快照记录：
-    {'action': 'subscribe', 'subscribe': 'tick', 'pair': 'vtho_eth'}
+    {"action": "subscribe", "subscribe": "tick", "pair": "vtho_eth"}
 
 
 5. 请求数据（request）
@@ -86,7 +85,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
       用于指定K线的时间间隔，当前该参数接受的选项包括1min, 5min, 15min, 30min, 
       1hr, 2hr, 3hr, 4hr, 6hr, 8hr, 12hr, day, week, month, year。如果
       需要查询历史数据，需要增加两个字段start和size。start是开始时间，接受两种格
-      式，一种是ISO格式，精确到秒，如'2018-08-03T17:32:00'（北京时间），另一种
+      式，一种是ISO格式，精确到秒，如"2018-08-03T17:32:00"（北京时间），另一种
       是UNIX时间戳，暨1970年1月1日0时（UTC/GMT）开始的秒数，如1514736000.0代
       表北京时间2018年1月1日0点。size是需要获取的kbar的条数。最大不超过1440条。
       若没有start和size这两个参数，默认获取最新的一条kbar数据。
