@@ -73,13 +73,10 @@ string[] parameters={
 amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc&type=buy.
 ```
 
-## MD5签名
-在MD5签名时,需要私钥`secretKey`参与签名。将待签名字符串添加私钥参数生成最终待签名字符串。
-例如：
-```
-amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc&type=buy&secret_key=secretKey 
-```
-
-**_注意`&secret_key=secretKey` 为签名必要参数。_**
+## MD5摘要
 
 利用32位MD5算法 对最终待签名字符串进行签名运算,从而得到签名结果字符串(该字符串赋值于参数`sign`)，MD5计算结果中字母全部大写。
+
+## RSA签名
+
+用户得到MD5签名过后的结果字符串后，在使用自己的私钥，通过RSA使用SHA256 对MD5摘要做一次签名，并将该MD5摘要赋值于参数'sign'。
