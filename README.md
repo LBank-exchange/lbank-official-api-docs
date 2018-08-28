@@ -79,4 +79,4 @@ amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc
 
 ## RSA签名
 
-用户得到MD5签名过后的结果字符串后，在使用自己的私钥，通过RSA使用SHA256 对MD5摘要做一次签名，并将该MD5摘要赋值于参数'sign'。
+用户得到MD5签名过后的结果字符串后，在使用自己的私钥，通过RSA使用SHA256算法对MD5摘要做一次签名(Base64编码的)，并将该MD5摘要赋值于参数'sign'。
