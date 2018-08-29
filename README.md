@@ -13,7 +13,7 @@
 > - 快速买进卖出    
 > - 撤销订单    
 
-所有请求基于 `http` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`http://api.lbank.info/` 
+所有请求基于 `http` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`http://api.lbkex.com/` 
 
 例如：
 ```javascript
