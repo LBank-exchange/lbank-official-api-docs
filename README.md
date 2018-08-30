@@ -13,7 +13,7 @@
 > - 快速买进卖出    
 > - 撤销订单    
 
-所有请求基于 `http` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`http://api.lbkex.com/` 
+所有请求基于 `https` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`https://api.lbkex.com/` 
 
 例如：
 ```javascript
@@ -31,7 +31,7 @@ LBank为用户提供了三种调用接口的方式，开发者可根据自己的
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。其优点如下：    
 > - 在RESTful架构中，每一个URL代表一种资源；    
 > - 客户端和服务器之间，传递这种资源的某种表现层；    
-> - 客户端通过四个HTTP指令，对服务器端资源进行操作，实现“表现层状态转化”。    
+> - 客户端通过四个HTTPS指令，对服务器端资源进行操作，实现“表现层状态转化”。    
 
 建议开发者使用REST API进行币币交易或者资产提现等操作。 
 
