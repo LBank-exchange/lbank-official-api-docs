@@ -11,9 +11,9 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
     
 ## 请求交互    
 
-`REST` 访问的根URL：`http://api.lbkex.com/`
+`REST` 访问的根URL：`https://api.lbkex.com/`
  
-所有请求基于 `Http` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
+所有请求基于 `Https` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
 	
 请求交互说明    
 > 1. 请求参数：根据接口请求参数规定进行参数封装。    
@@ -38,7 +38,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 请求示例:	
 
 ```javascript
-# RequestPOST http://api.lbkex.com/v1/user_info.do
+# RequestPOST https://api.lbkex.com/v1/user_info.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "sign"："0E0872AD955C0E715B43C78F24B3053A",
@@ -91,7 +91,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/create_order.do
+POST https://api.lbkex.com/v1/create_order.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "symbol"："eth_btc",
@@ -131,7 +131,7 @@ POST http://api.lbkex.com/v1/create_order.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/cancel_order.do
+POST https://api.lbkex.com/v1/cancel_order.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "symbol"："eth_btc",
@@ -173,7 +173,7 @@ POST http://api.lbkex.com/v1/cancel_order.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/orders_info.do
+POST https://api.lbkex.com/v1/orders_info.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "symbol"："eth_btc",
@@ -243,7 +243,7 @@ POST http://api.lbkex.com/v1/orders_info.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/orders_info_history.do
+POST https://api.lbkex.com/v1/orders_info_history.do
 {
   "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
   "symbol"："eth_btc",
@@ -314,7 +314,7 @@ POST http://api.lbkex.com/v1/orders_info_history.do
 
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/accuracy.do
+GET https://api.lbkex.com/v1/accuracy.do
 
 # Response
 [
@@ -353,7 +353,7 @@ GET http://api.lbkex.com/v1/accuracy.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/orders_info_no_deal.do
+POST https://api.lbkex.com/v1/orders_info_no_deal.do
 {
   "api_key": "sijnvsvodnvow928492fh2938fh92348f",
   "symbol": "eth_btc",
@@ -413,7 +413,7 @@ POST http://api.lbkex.com/v1/orders_info_no_deal.do
 
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/usdToCny.do
+GET https://api.lbkex.com/v1/usdToCny.do
 
 # Response
 {"USD2CNY":"6.4801"}
@@ -441,7 +441,7 @@ GET http://api.lbkex.com/v1/usdToCny.do
 
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/withdrawConfigs.do
+GET https://api.lbkex.com/v1/withdrawConfigs.do
 
 # Response
 [{'assetCode': 'eth', 'min': '0.01', 'canWithDraw': True, 'fee': '0.01'}]
@@ -478,7 +478,7 @@ GET http://api.lbkex.com/v1/withdrawConfigs.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/withdraw.do
+POST https://api.lbkex.com/v1/withdraw.do
 
 # Response
 {'result': 'true', 'withdrawId': 90082, 'fee':0.001}
@@ -510,7 +510,7 @@ POST http://api.lbkex.com/v1/withdraw.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/withdrawCancel.do
+POST https://api.lbkex.com/v1/withdrawCancel.do
 
 # Response
 {'result': 'true', 'withdrawId': '90083'}
@@ -545,7 +545,7 @@ POST http://api.lbkex.com/v1/withdrawCancel.do
 
 ```javascript
 # Request
-POST http://api.lbkex.com/v1/withdraws.do
+POST https://api.lbkex.com/v1/withdraws.do
 
 # Response
 {
