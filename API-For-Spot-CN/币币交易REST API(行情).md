@@ -5,15 +5,15 @@
 REST，即Representational State Transfer的缩写，是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，正得到越来越多网站的采用。其优点如下：    
 > - 在 `RESTful` 架构中，每一个 `URL` 代表一种资源；    
 > - 客户端和服务器之间，传递这种资源的某种表现层；    
-> - 客户端通过四个 `HTTP` 指令，对服务器端资源进行操作，实现“表现层状态转化”。   
+> - 客户端通过四个 `HTTPS` 指令，对服务器端资源进行操作，实现“表现层状态转化”。   
 
 建议开发者使用 `REST API` 进行币币交易或者资产提现等操作。    
     
 ## 请求交互    
 
-`REST` 访问的根URL：`http://api.lbkex.com/`
+`REST` 访问的根URL：`https://api.lbkex.com/`
 
-所有请求基于 `Http` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
+所有请求基于 `Https` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
 	
 请求交互说明    
 > 1. 请求参数：根据接口请求参数规定进行参数封装。    
@@ -27,7 +27,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 1.获取LBank币币行情数据  
 
-> URL: `http://api.lbkex.com/v1/ticker.do`
+> URL: `https://api.lbkex.com/v1/ticker.do`
 
 请求参数	
 
@@ -43,7 +43,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/ticker.do
+GET https://api.lbkex.com/v1/ticker.do
 {
   "symbol"："all"
 }
@@ -78,7 +78,7 @@ GET http://api.lbkex.com/v1/ticker.do
 请求示例2：
 
 ```javascript
-# RequestGET http://api.lbkex.com/v1/ticker.do
+# RequestGET https://api.lbkex.com/v1/ticker.do
 {
   "symbol"："eth_btc"
 }
@@ -113,7 +113,7 @@ GET http://api.lbkex.com/v1/ticker.do
 
 2.获取LBank可用交易对接口
 
-> URL: `http://api.lbkex.com/v1/currencyPairs.do`	
+> URL: `https://api.lbkex.com/v1/currencyPairs.do`	
 
 请求参数: `无`
 
@@ -121,7 +121,7 @@ GET http://api.lbkex.com/v1/ticker.do
 
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/currencyPairs.do
+GET https://api.lbkex.com/v1/currencyPairs.do
 
 # Response[
   "bcc_eth","etc_btc","dbc_neo","eth_btc",
@@ -136,7 +136,7 @@ GET http://api.lbkex.com/v1/currencyPairs.do
 
 3.获取LBank市场深度
 
-URL: `http://api.lbkex.com/v1/depth.do`	
+URL: `https://api.lbkex.com/v1/depth.do`	
 
 请求参数	
 
@@ -149,7 +149,7 @@ URL: `http://api.lbkex.com/v1/depth.do`
 请求示例
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/depth.do
+GET https://api.lbkex.com/v1/depth.do
 {
   "symbol"："eth_btc",
   "size"："60",
@@ -181,7 +181,7 @@ bids :买方深度
 ```
 4.获取LBank历史交易信息
 
-URL: `http://api.lbkex.com/v1/trades.do`	
+URL: `https://api.lbkex.com/v1/trades.do`	
 
 请求参数	
 
@@ -194,7 +194,7 @@ URL: `http://api.lbkex.com/v1/trades.do`
 请求示例
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/trades.do
+GET https://api.lbkex.com/v1/trades.do
 {
   "symbol"："eth_btc",
   "size"："600",
@@ -238,7 +238,7 @@ GET http://api.lbkex.com/v1/trades.do
 
 5.获取K线数据
 
-URL: `http://api.lbkex.com/v1/kline.do`	
+URL: `https://api.lbkex.com/v1/kline.do`	
 
 请求参数	
 
@@ -252,7 +252,7 @@ URL: `http://api.lbkex.com/v1/kline.do`
 请求示例
 ```javascript
 # Request
-GET http://api.lbkex.com/v1/kline.do
+GET https://api.lbkex.com/v1/kline.do
 {
   "symbol"："eth_btc",
   "size"："600",
