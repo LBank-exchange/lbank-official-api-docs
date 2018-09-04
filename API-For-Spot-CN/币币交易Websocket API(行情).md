@@ -17,7 +17,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 ==================
 
 1. 访问地址
-    ws://api.lbkex.com/ws/V2/
+    wss://api.lbkex.com/ws/V2/
 
 
 2. 数据格式：
