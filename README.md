@@ -19,8 +19,6 @@
 ```javascript
 contentType:'application/x-www-form-urlencoded'
 ```
-
-如果在使用过程中有任何问题，请联系我们技术讨论`QQ`群： `LBank`官方API技术交流群 `325248096`，我们将为您做出最权威的解答。
     
 ## Getting Started  
 
