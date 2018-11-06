@@ -1,3 +1,112 @@
+# Getting Started
+
+## API overview
+
+Lbank provides users with a set of simple and powerful development 
+tools designed to help users quickly and efficiently integrate Lbank 
+trading functions into their applications.
+
+
+The following functions can be quickly implemented through the `API`:
+>- Market updates
+>- Trading information
+>- Account Information 
+>- Match Depth 
+>- Order Information
+>- Place Order
+>- Cancel Order
+
+All the requests are based on the `https` protocol, and 
+`contentType should be set as `application/x-www-form-urlencoded` 
+in the request header. The API root URL is `https://api.lbkex.com/`
+
+For example:
+```javascript
+contentType:'application/x-www-form-urlencoded'
+```
+
+
+## Getting Started
+LBank provides three types of \nterfaces to users, the developer can 
+choose the most suitable way to look for market information either 
+through proceeding the trading, withdrawing the deposit based on 
+the users’ preferences. 
+
+#### REST API
+
+REST (Representational State Transfer) is the most popular internet 
+software architecture to date. It has a clear structure, conforms to 
+standards, is easy to understand, and is convenient to expand. 
+It has become increasingly adapted on most websites. 
+The advantages of it including:
+
+>- In RESTful architecture, each URL represents a certain kind of resource
+>- Between the client and the server, a certain presentation layer of such resources is passed. 
+>- The Client uses the four HTTP commands to operate on the server-side resources to achieve “state transition of the presentation layer”
+
+We suggested to use the REST API for currency exchange transactions or asset withdrawals. 
+
+#### WebSocket API
+LBank provides an efficient WebSocket Market Interface as well. 
+WebSocket is a new protocol for HTML5. It implements full-duplex communication between 
+the client and the server, allowing data to be transmitted in both directions quickly. 
+A simple handshake can establish a connection between the client and the server. 
+The server can push information to the client according to the business rules. 
+The advantages of it including:
+>- When the client and server perform data transmission, the request header information is relatively small, about 2 bytes;
+>- Both client and server can send data to the other party actively;
+>- No need to create TCP requests and destroy multiple times, saving bandwidth and server resources.
+
+**_ Developers are strongly advised to use the WebSocket API to obtain information such as market conditions and trading depth. _**
+
+
+## Get API Permissions
+
+The user's API permissions are obtained from the website's 
+`basic settings -> My API`. Click Apply API to get, where 
+apiKey is the access key that LBank provides to API users 
+and secretKey is the private key used to sign request parameters.
+
+**_ Never reveal these two parameters to anyone. These two are highly relevant to your account security. _**
+
+## Generating Parameter Signature String(to be signed)
+
+User submitted parameters must be signed in addition to sign. 
+The string to be signed is ordered according to the parameter 
+name (first compares the first letter of all parameter names, 
+in alphabet order, if you encounter the same first letter, 
+then look at the second letter, and so on).
+
+For example, sign the following parameters
+
+```java
+string[] parameters={
+  "api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c"，
+  "symbol=eth_btc",
+  "type=buy",
+  "price=680",
+  "amount=1.0"
+}; 
+
+```
+
+Generated a string is:
+```json
+amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc&type=buy.
+```
+
+## MD5 Digest
+
+MD5 algorithm is used to perform a signature operation on the final string to be signed, 
+thereby obtaining a signature hex result string (this string is assigned to the parameter 
+sign). In the MD5 calculation result, letters are all capitalized.
+
+## RSA Signature
+
+Users could use their private key to perform a signature operation (Base64 coded) to a MD5 digest
+by implementing SHA256 algorithm through RSA, after users getting the signature result string 
+which is signed by MD5 algorithm. 
+
 # 入门指引    
 
 ## API概述    
@@ -73,7 +182,7 @@ amount=1.0&api_key=c821db84-6fbd-11e4-a9e3-c86000d26d7c&price=680&symbol=eth_btc
 
 ## MD5摘要
 
-利用32位MD5算法 对最终待签名字符串进行签名运算,从而得到签名结果字符串(该字符串赋值于参数`sign`)，MD5计算结果中字母全部大写。
+MD5算法 对最终待签名字符串进行签名运算,从而得到签名结果字符串(该字符串赋值于参数`sign`)，MD5计算结果中字母全部大写。
 
 ## RSA签名
 
