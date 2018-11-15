@@ -219,7 +219,6 @@ POST https://api.lbkex.com/v1/orders_info.do
 
 Returns
 
-
 |Field|Note|
 |-|-|
 |result|`true` on success or `false` on failure (For single order)|
@@ -236,6 +235,183 @@ Returns
 
 
 
+
+5. Query history order (Only the records in recent two days are available)
+
+Parameters:
+
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|Yes|User's `api_key`|
+|symbol|String|Yes|Trading Pair<br>`eth_btc`:Etherum over bitcoin； `zec_btc`:zcoin over bitcoin |
+|current_page|String|Yes|Current Page|
+|page_length|String|Yes|The records in a page. No more than 200.|
+|sign|String|Yes|signature of the request|
+
+Example
+
+```javascript
+# Request
+POST https://api.lbkex.com/v1/orders_info_history.do
+{
+  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "symbol"："eth_btc",
+  "current_page"："1",
+  "page_length"："100",
+  "sign"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+}
+# Response
+{
+  "result"："true",
+  "total"："1",
+  "page_length"："20",
+  "orders"：[
+    {
+      "symbol"："eth_btc",
+      "amount"：5.0000,
+      "create_time"：1484716198613,
+      "price"：6666.0000,
+      "avg_price"：0.0000,
+      "type"："sell",
+      "order_id"："c3f9c478-5b06-4e1e-9df9-9f84f57a446c",
+      "deal_amount"：0.0000,
+      "status"：0
+    },
+    {
+      "symbol"："eth_btc",
+      "amount"：10.0000,
+      "create_time"：1484716151390,
+      "price"：6000.0000,
+      "avg_price"：6136.3895,
+      "type"："sell",
+      "order_id"："9ead39f5-701a-400b-b635-d7349eb0f6b4",
+      "deal_amount"：10.0000,
+      "status"：2
+    }
+  ],
+  "current_page"："1",
+}
+```
+
+Returns
+
+|Field|Note|
+|-|-|
+|result|`true` on success or `false` on failure (For single order)|
+|symbol|Trading Pair，`eth_btc`：Etherum， `zec_btc`：ZCash|
+|order_id|Order ID (For single order)| 
+|orders|A list of querying orders| 
+|amount|required volume|
+|create_time|order time|
+|price|price|
+|avg_price|Average strike price|
+|type|`buy`：Buy<br>`sell`：Sell
+|deal_amount|filled volume|
+|status|Status<br>`-1`：Cancelled <br>`0`：on trading <br>`1`： filled partially <br> `2`：Filled totally <br>`4`：Cancelling|
+|current_page|Current Page|
+|page_length|The page size|
+|total|Total number of records.|
+
+
+6. Acquiring the basic information of all trading pairs
+
+Parameters:
+None
+
+Example
+
+
+```javascript
+# Request
+GET https://api.lbkex.com/v1/accuracy.do
+
+# Response
+[
+  {
+    "priceAccuracy": "2",
+    "quantityAccuracy": "4",
+    "symbol": "pch_usdt"
+  }
+]
+```
+
+Returns
+
+|Field|Note|
+|-|-|
+|symbol|Trading Pair，`eth_btc`：Etherum， `zec_btc`：ZCash|
+|priceAccuracy|Price Accuracy|
+|quantityAccuracy|Quantity Accuracy|
+
+6. Acquiring openning orders
+
+Parameters:
+
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|Yes|User's `api_key`|
+|symbol|String|Yes|Trading Pair<br>`eth_btc`:Etherum over bitcoin； `zec_btc`:zcoin over bitcoin |
+|current_page|String|Yes|Current Page|
+|page_length|String|Yes|The records in a page. No more than 200.|
+|sign|String|Yes|signature of the request|
+
+Example
+
+
+```javascript
+# Request
+POST https://api.lbkex.com/v1/orders_info_no_deal.do
+{
+  "api_key": "sijnvsvodnvow928492fh2938fh92348f",
+  "symbol": "eth_btc",
+  "current_page":"1",
+  "page_length":"100",
+  "sign":"iuhviuviuhviuerh92834fheifhw98f39r8g3rhf"
+}
+
+
+# Response
+{
+  'page_length': 100, 
+  'current_page': 1, 
+  'total': 1, 
+  'result': true,
+  'orders': [
+    {
+      'status': 0,
+      'custom_id': None, 
+      'order_id': 'a7de8dae-16a3-416b-8fc9-e3bb88e0d819', 
+      'price': 0.015, 
+      'amount': 100.0, 
+      'create_time': 1527498699770, 
+      'avg_price': 0.0, 
+      'type': 'sell',
+      'symbol': 'eth_btc', 
+      'deal_amount': 0.0
+    }
+  ]
+}
+```
+
+Returns
+|Field|Note|
+|-|-|
+|result|`true` on success or `false` on failure (For single order)|
+|symbol|Trading Pair，`eth_btc`：Etherum， `zec_btc`：ZCash|
+|order_id|Order ID (For single order)| 
+|orders|A list of querying orders| 
+|amount|required volume|
+|create_time|order time|
+|price|price|
+|avg_price|Average strike price|
+|type|`buy`：Buy<br>`sell`：Sell
+|deal_amount|filled volume|
+|status|Status<br>`0`：on trading <br>`1`： filled partially|
+|current_page|Current Page|
+|page_length|The page size|
+|total|Total number of records.|
 
 
 
