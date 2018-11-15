@@ -296,7 +296,7 @@ POST https://api.lbkex.com/v1/orders_info_history.do
 |orders|查询的订单集合| 
 |price|委托价格|
 |avg_price|平均成交价|
-|type|`buy`：买入<br>`sell`：卖出|
+|type|`buy`：买入<br>`sell`：卖出<br>`buy_market`: 市价单买入（price参数表示要买的量，以基准币计算，不需要amount参数）<br>`sell_market`：市价单卖出（amount参数是卖出的量，以卖出的token计算，不需要price参数）|
 |deal_amount|成交数量|
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 |current_page|当前页码|
