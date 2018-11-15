@@ -416,6 +416,7 @@ Returns
 
 
 7. Exchange rate of USD/RMB (Update on 00:00 everyday)
+
 Parameters
 
 None
@@ -451,7 +452,44 @@ GET https://api.lbkex.com/v1/withdrawConfigs.do
 [{'assetCode': 'eth', 'min': '0.01', 'canWithDraw': True, 'fee': '0.01'}]
 ```
 
+|Field|Note|
+|-|-|
+|USD2CNY |Exchange rate of USD/RMB|
+|assetCode |Code of token|
+|min |Minimum amount to withdraw|
+|canWithDraw |Whether the currency can be withdrawn|
+|fee |Charged fee for withdrawal（amount）|
 
 
+9. Withdraw (IP binding is required.)
 
+Parameters
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|Yes|User's `api_key`|
+|account|String|Yes|Address|
+|assetCode|String|Yes|Asset Code|
+|amount|String|Yes| Amount（Must be integer for NEO）|
+|memo|String|No|Required for BTS and/or DCT|
+|mark|String|No|User's memo.(length <= 255)|
+|sign|String|Yes|signature of the request|
+
+Example
+
+```javascript
+# Request
+POST https://api.lbkex.com/v1/withdraw.do
+
+# Response
+{'result': 'true', 'withdrawId': 90082, 'fee':0.001}
+```
+
+Returns
+
+|Field|Note|
+|-|-|
+|result |true：success，false：failed|
+|withdrawId |Current withdrawal ID|
+|fee |Withdrawal fee（amount）|
 
