@@ -396,6 +396,7 @@ POST https://api.lbkex.com/v1/orders_info_no_deal.do
 ```
 
 Returns
+
 |Field|Note|
 |-|-|
 |result|`true` on success or `false` on failure (For single order)|
@@ -412,6 +413,44 @@ Returns
 |current_page|Current Page|
 |page_length|The page size|
 |total|Total number of records.|
+
+
+7. Exchange rate of USD/RMB (Update on 00:00 everyday)
+Parameters
+
+None
+
+```javascript
+# Request
+GET https://api.lbkex.com/v1/usdToCny.do
+
+# Response
+{"USD2CNY":"6.4801"}
+```
+
+Returns
+
+|Field|Note|
+|-|-|
+|USD2CNY |Exchange rate of USD/RMB|
+
+8. Withdraw configurations
+
+Parameters
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|assetCode|String|No|Code of the asset|
+
+Example
+```javascript
+# Request
+GET https://api.lbkex.com/v1/withdrawConfigs.do
+
+# Response
+[{'assetCode': 'eth', 'min': '0.01', 'canWithDraw': True, 'fee': '0.01'}]
+```
+
 
 
 
