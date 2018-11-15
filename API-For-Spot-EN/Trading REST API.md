@@ -493,3 +493,94 @@ Returns
 |withdrawId |Current withdrawal ID|
 |fee |Withdrawal fee（amount）|
 
+
+10 Revoke Withdraw (IP binding is required.)
+
+Parameters
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|Yes|User's `api_key`|
+|withdrawId |Current withdrawal ID|
+|sign|String|Yes|signature of the request|
+
+
+Example
+
+```javascript
+# Request
+POST https://api.lbkex.com/v1/withdrawCancel.do
+
+# Response
+{'result': 'true', 'withdrawId': '90083'}
+```
+
+Returns
+
+|Field|Note|
+|-|-|
+|result |true：success，false：failed|
+|withdrawId |Current withdrawal ID|
+
+
+11. Query Withdrawal Records
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|api_key|String|Yes|User's `api_key`|
+|assetCode|String|Yes| |
+|status|String|Yes|Status: <br> 0: All, 1: applying. 2. Revoked. 3. Failed. 4. Completed )|
+|pageNo|String|Yes|Current Page. Default 1.|
+|pageSize|String|Yes|The records in a page. No more than 100. Default 20|
+|sign|String|Yes|signature of the request|
+
+Example
+
+```javascript
+# Request
+POST https://api.lbkex.com/v1/withdraws.do
+
+# Response
+{
+	'totalPages': 1,
+	'pageSize': 20,
+	'pageNo': 1
+	'list': [{
+		'amount': 20.0,
+		'assetCode': 'btc',
+		'address': 'erfwergertghrehyrhethyryuj',
+		'fee': 0.0,
+		'id': 89686,
+		'time': 1525750028000,
+		'txHash': '',
+		'status': '2'
+	}, {
+		'amount': 335.0,
+		'assetCode': 'btc',
+		'address': 'erfwergertghrehyrhethyryuj',
+		'fee': 0.0,
+		'id': 89687,
+		'time': 1525767979000,
+		'txHash': '',
+		'status': '2'
+	}
+	....]
+}
+```
+
+Return
+
+|Field|Note|
+|-|-|
+|totalPage |Total Number of Pages|
+|pageNo|Current Page. |
+|pageSize|The records in a page. |
+|list| List data（id: coin withdrawal ID，assetCode: Asset Code，
+address: coin withdrawal address，amount：withdrawal amount，
+fee：withdrawal fee，time：wtihdrawal time，txHash：withdrawal hash，
+status：Coin withdrawal status）|
+
+
+
+
+
