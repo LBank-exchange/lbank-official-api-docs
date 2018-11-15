@@ -575,10 +575,7 @@ Return
 |totalPage |Total Number of Pages|
 |pageNo|Current Page. |
 |pageSize|The records in a page. |
-|list| List data（id: coin withdrawal ID，assetCode: Asset Code，
-address: coin withdrawal address，amount：withdrawal amount，
-fee：withdrawal fee，time：wtihdrawal time，txHash：withdrawal hash，
-status：Coin withdrawal status）|
+|list| List data（id: coin withdrawal ID，assetCode: Asset Code，address: coin withdrawal address，amount：withdrawal amount fee：withdrawal fee，time：wtihdrawal time，txHash：withdrawal hash， status：Coin withdrawal status）|
 
 
 
