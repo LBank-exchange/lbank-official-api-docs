@@ -124,7 +124,7 @@ POST https://api.lbkex.com/v1/create_order.do
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|是|用户申请的 `api_key`|
 |symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
-|order_id|String|是|订单id<br>多个订单 `order_id1,order_id2`, 订单个数限制 `1-3` |
+|order_id|String|是|订单id<br>多个订单 `order_id1,order_id2`, 订单个数限制 `1-50` |
 |sign|String|是|请求参数的签名|
 
 请求示例:	
