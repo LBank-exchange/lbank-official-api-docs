@@ -11,8 +11,8 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
     
 ## 请求交互    
 
-`REST` 访问的根URL：`https://www.lbkex.net/`
- 
+`REST` 访问的根URL：`https://www.lbkex.net/` 或 `https://api.lbkex.com/`
+ 
 所有请求基于 `Https` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
 	
 请求交互说明    
