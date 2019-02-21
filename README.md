@@ -18,7 +18,7 @@ The following functions can be quickly implemented through the `API`:
 
 All the requests are based on the `https` protocol, and 
 `contentType should be set as `application/x-www-form-urlencoded` 
-in the request header. The API root URL is `https://www.lbkex.net/`
+in the request header. The API root URL is `https://www.lbkex.net/
 
 For example:
 ```javascript
