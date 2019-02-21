@@ -11,7 +11,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
     
 ## 请求交互    
 
-`REST` 访问的根URL：`https://api.lbkex.com/`
+`REST` 访问的根URL：`https://www.lbkex.net/`
 
 所有请求基于 `Https` 协议，请求头信息中 `contentType` 需要统一设置为：`application/x-www-form-urlencoded`    
 	
@@ -27,7 +27,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 1.获取LBank币币行情数据  
 
-> URL: `https://api.lbkex.com/v1/ticker.do`
+> URL: `https://www.lbkex.net/v1/ticker.do`
 
 请求参数	
 
@@ -43,7 +43,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 ```javascript
 # Request
-GET https://api.lbkex.com/v1/ticker.do
+GET https://www.lbkex.net/v1/ticker.do
 {
   "symbol"："all"
 }
@@ -78,7 +78,7 @@ GET https://api.lbkex.com/v1/ticker.do
 请求示例2：
 
 ```javascript
-# RequestGET https://api.lbkex.com/v1/ticker.do
+# RequestGET https://www.lbkex.net/v1/ticker.do
 {
   "symbol"："eth_btc"
 }
@@ -113,7 +113,7 @@ GET https://api.lbkex.com/v1/ticker.do
 
 2.获取LBank可用交易对接口
 
-> URL: `https://api.lbkex.com/v1/currencyPairs.do`	
+> URL: `https://www.lbkex.net/v1/currencyPairs.do`	
 
 请求参数: `无`
 
@@ -121,7 +121,7 @@ GET https://api.lbkex.com/v1/ticker.do
 
 ```javascript
 # Request
-GET https://api.lbkex.com/v1/currencyPairs.do
+GET https://www.lbkex.net/v1/currencyPairs.do
 
 # Response[
   "bcc_eth","etc_btc","dbc_neo","eth_btc",
@@ -136,7 +136,7 @@ GET https://api.lbkex.com/v1/currencyPairs.do
 
 3.获取LBank市场深度
 
-URL: `https://api.lbkex.com/v1/depth.do`	
+URL: `https://www.lbkex.net/v1/depth.do`	
 
 请求参数	
 
@@ -149,7 +149,7 @@ URL: `https://api.lbkex.com/v1/depth.do`
 请求示例
 ```javascript
 # Request
-GET https://api.lbkex.com/v1/depth.do
+GET https://www.lbkex.net/v1/depth.do
 {
   "symbol"："eth_btc",
   "size"："60",
@@ -181,7 +181,7 @@ bids :买方深度
 ```
 4.获取LBank历史交易信息
 
-URL: `https://api.lbkex.com/v1/trades.do`	
+URL: `https://www.lbkex.net/v1/trades.do`	
 
 请求参数	
 
@@ -194,7 +194,7 @@ URL: `https://api.lbkex.com/v1/trades.do`
 请求示例
 ```javascript
 # Request
-GET https://api.lbkex.com/v1/trades.do
+GET https://www.lbkex.net/v1/trades.do
 {
   "symbol"："eth_btc",
   "size"："600",
@@ -238,7 +238,7 @@ GET https://api.lbkex.com/v1/trades.do
 
 5.获取K线数据
 
-URL: `https://api.lbkex.com/v1/kline.do`	
+URL: `https://www.lbkex.net/v1/kline.do`	
 
 请求参数	
 
@@ -252,7 +252,7 @@ URL: `https://api.lbkex.com/v1/kline.do`
 请求示例
 ```javascript
 # Request
-GET https://api.lbkex.com/v1/kline.do
+GET https://www.lbkex.net/v1/kline.do
 {
   "symbol"："eth_btc",
   "size"："600",
