@@ -18,7 +18,7 @@ The following functions can be quickly implemented through the `API`:
 
 All the requests are based on the `https` protocol, and 
 `contentType should be set as `application/x-www-form-urlencoded` 
-in the request header. The API root URL is `https://www.lbkex.net/ or `https://api.lbkex.com/
+in the request header. The API root URL is `https://www.lbkex.net/ or https://api.lbkex.com/
 
 For example:
 ```javascript
@@ -122,7 +122,7 @@ which is signed by MD5 algorithm.
 > - 快速买进卖出    
 > - 撤销订单    
 
-所有请求基于 `https` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`https://www.lbkex.net/` 
+所有请求基于 `https` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`https://www.lbkex.net/` 或 https://api.lbkex.com
 
 例如：
 ```javascript
