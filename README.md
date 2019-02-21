@@ -122,7 +122,7 @@ which is signed by MD5 algorithm.
 > - 快速买进卖出    
 > - 撤销订单    
 
-所有请求基于 `https` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`https://api.lbkex.com/` 
+所有请求基于 `https` 协议，请求头信息中 `contentType` 需要统一设置为: `'application/x-www-form-urlencoded'`，访问的根URL：`https://www.lbkex.net/` 
 
 例如：
 ```javascript
