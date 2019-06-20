@@ -1,4 +1,3 @@
-
 WebSocket API (V2.0 beta) 
 ===========================
 
@@ -17,7 +16,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 ==================
 
 1. 访问地址
-    wss://api.lbkex.com/ws/V2/
+    wss://www.lbkex.net/ws/V2/
 
 
 2. 数据格式：
@@ -57,7 +56,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
     数据，用户登陆后可以同时订阅更多数据。
     * kbar:  K线数据（蜡烛图）。除了上面的两个字段，还需要一个额外字段：kbar，
       用于指定K线的时间间隔，当前该参数接受的选项包括1min, 5min, 15min, 30min, 
-      1hr, 2hr, 3hr, 4hr, 6hr, 8hr, 12hr, day, week, month, year; 
+      1hr, 4hr, day, week, month, year; 
     * depth：当前交易的深度数据。除了上面的两个字段，还需要一个额外字段：depth，用于
       指定深度，现在有 10/50/100 三个深度可以选择
     * tick： 当前交易的实时快照
@@ -75,6 +74,9 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 
     订阅vtho/eth交易对的快照记录：
     {"action": "subscribe", "subscribe": "tick", "pair": "vtho_eth"}
+    
+    取消订阅eth/btc交易对的5min K线：
+    {"action": "unsubscribe", "subscribe": "kbar", "kbar": "5min", "pair": "eth_btc"}
 
 
 5. 请求数据（request）
@@ -83,12 +85,12 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
     历史数据的查询。
     * kbar:  K线数据（蜡烛图）。除了上面的两个字段，还需要一个额外字段：kbar，
       用于指定K线的时间间隔，当前该参数接受的选项包括1min, 5min, 15min, 30min, 
-      1hr, 2hr, 3hr, 4hr, 6hr, 8hr, 12hr, day, week, month, year。如果
-      需要查询历史数据，需要增加两个字段start和size。start是开始时间，接受两种格
-      式，一种是ISO格式，精确到秒，如"2018-08-03T17:32:00"（北京时间），另一种
-      是UNIX时间戳，暨1970年1月1日0时（UTC/GMT）开始的秒数，如1514736000.0代
+      1hr, 4hr, day, week, month, year。如果
+      需要查询历史数据，需要增加字段start, end, size。start是开始时间, end是截止时间,
+      接受两种格式，一种是ISO格式，精确到秒，如"2018-08-03T17:32:00"（北京时间）,
+      另一种是UNIX时间戳，暨1970年1月1日0时（UTC/GMT）开始的秒数，如1514736000.0代
       表北京时间2018年1月1日0点。size是需要获取的kbar的条数。最大不超过1440条。
-      若没有start和size这两个参数，默认获取最新的一条kbar数据。
+      若没有start, end, size参数，默认获取最新的一条kbar数据。
     * depth：当前交易的深度数据。除了上面的两个字段，还需要一个额外字段：depth，
       用于指定深度，现在有 10/50/100 三个深度可以选择    
     * tick： 当前交易的实时快照
