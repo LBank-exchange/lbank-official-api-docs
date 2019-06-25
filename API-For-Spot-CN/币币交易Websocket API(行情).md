@@ -26,7 +26,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
     pong：回应心跳
     request：请求数据
     subscribe：订阅数据
-    unsubscribe：推订数据
+    unsubscribe：退订数据
     不同的动作需要不同的参数，在下面章节仔细说明。
     两次动作之间至少间隔0.1s，过于频繁对请求会被切断连接。
 
@@ -81,7 +81,7 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了
 
 5. 请求数据（request）
     每个订阅数据应该至少包括一个request字段，用于指定订阅的数据类型。现在可以订阅
-    的数据包括：kbar，tick，depth，depth四种。除kbar外，其它三种数据暂时不支持
+    的数据包括：kbar，tick，depth，trade四种。除kbar外，其它三种数据暂时不支持
     历史数据的查询。
     * kbar:  K线数据（蜡烛图）。除了上面的两个字段，还需要一个额外字段：kbar，
       用于指定K线的时间间隔，当前该参数接受的选项包括1min, 5min, 15min, 30min, 
