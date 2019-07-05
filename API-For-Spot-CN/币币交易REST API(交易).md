@@ -40,7 +40,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 ```javascript
 # RequestPOST https://www.lbkex.net/v1/user_info.do
 {
-  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
   "sign"："0E0872AD955C0E715B43C78F24B3053A",
 }
 # Response
@@ -93,7 +93,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 # Request
 POST https://www.lbkex.net/v1/create_order.do
 {
-  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
   "symbol"："eth_btc",
   "type"："buy",
   "price"："5323.42",
@@ -133,7 +133,7 @@ POST https://www.lbkex.net/v1/create_order.do
 # Request
 POST https://www.lbkex.net/v1/cancel_order.do
 {
-  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
   "symbol"："eth_btc",
   "order_id"："24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23",
   "sign"："16702619-0bc8-446d-a3d0-62fb67a8985e",
@@ -175,7 +175,7 @@ POST https://www.lbkex.net/v1/cancel_order.do
 # Request
 POST https://www.lbkex.net/v1/orders_info.do
 {
-  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
   "symbol"："eth_btc",
   "order_id"："24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23,57a80854-cf31-489a-93b3-d25a2d4c12f2",
   "sign"："16702619-0bc8-446d-a3d0-62fb67a8985e",
@@ -245,7 +245,7 @@ POST https://www.lbkex.net/v1/orders_info.do
 # Request
 POST https://www.lbkex.net/v1/orders_info_history.do
 {
-  "api_key"："16702619-0bc8-446d-a3d0-62fb67a8985e",
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
   "symbol"："eth_btc",
   "current_page"："1",
   "page_length"："100",
@@ -355,7 +355,7 @@ GET https://www.lbkex.net/v1/accuracy.do
 # Request
 POST https://www.lbkex.net/v1/orders_info_no_deal.do
 {
-  "api_key": "sijnvsvodnvow928492fh2938fh92348f",
+  "api_key": "16702619-0bc*********0-62fb67a8985e",
   "symbol": "eth_btc",
   "current_page":"1",
   "page_length":"100",
