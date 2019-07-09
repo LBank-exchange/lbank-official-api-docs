@@ -73,6 +73,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 |freeze |账户冻结余额 |
 |free |账户可用余额|
 
+
 2.下单 
 
 请求参数	
@@ -115,7 +116,8 @@ POST https://www.lbkex.net/v1/create_order.do
 |result|`true` 成功<br>`false` 失败 |
 |order_id|订单ID| 
 
-2.撤销订单 
+
+3.撤销订单 
 
 请求参数	
 
@@ -157,7 +159,8 @@ POST https://www.lbkex.net/v1/cancel_order.do
 |success|撤单请求成功的订单ID，等待系统执行撤单（用于多笔订单）| 
 |error|撤单请求失败的订单ID（用于多笔订单）
 
-3.查询订单 
+
+4.查询订单 
 
 请求参数	
 
@@ -226,7 +229,8 @@ POST https://www.lbkex.net/v1/orders_info.do
 |deal_amount|成交数量|
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 
-3.查询订单历史（仅支持查最近两天内的历史订单）
+
+5.查询订单历史（仅支持查最近两天内的历史订单）
 
 请求参数	
 
@@ -304,8 +308,149 @@ POST https://www.lbkex.net/v1/orders_info_history.do
 |total|该查询状态的总记录数|
 
 
+6.查询订单成交明细
 
-4.获取所有币对的基本信息
+请求参数	
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|sign|String|是|请求参数的签名|
+|api_key|String|是|用户申请的 `api_key`|
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|order_id|String|是|订单ID|
+
+请求示例:	
+
+```javascript
+# Request
+POST https://www.lbkex.net/v1/order_transaction_detail.do
+{
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
+  "symbol"："eth_btc",
+  "order_id"："24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23",
+  "sign"："16702619-0bc8-446d***********-a3d0-62fb67a8985e",
+}
+# Response
+{
+  "result"："true",
+  "transaction"：[
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23",
+      "tradeType": "sell",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    }
+  ]
+}
+```
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|result | `true` 成功<br>`false` 失败|
+|txUuid|交易编号|
+|orderUuid|订单ID|
+|tradeType|`buy`：买入<br>`sell`：卖出|
+|dealTime|成交时间| 
+|dealPrice|成交价格| 
+|dealQuantity|成交数量|
+|dealVolumePrice|成交额|
+|tradeFee|交易手续费|
+|tradeFeeRate|交易手续费率|
+
+
+7.历史成交明细
+
+请求参数	
+
+
+|参数名|	参数类型|	必填|	描述|
+| :-----    | :-----   | :-----    | :-----   |
+|sign|String|是|请求参数的签名|
+|api_key|String|是|用户申请的 `api_key`|
+|symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
+|type|String|否|订单类型 sell, buy|
+|start_date|String|否|开始时间 yyyy-mm-dd，最大值为今天，默认为昨天|
+|end_date|String|否|结束时间，yyyy-mm-dd，最大值为今天，默认为今天<br>起始与结束时间的查询窗口最大为2天|
+|from|String|否|查询的起始交易编号|
+|direct|String|否|查询方向，默认next，成交时间正序，prev为成交时间倒序|
+|size|String|否|查询条数，默认100，[1-100]|
+
+请求示例:	
+
+```javascript
+# Request
+POST https://www.lbkex.net/v1/transaction_history.do
+{
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
+  "symbol"："eth_btc",
+  "sign"："16702619-0bc8-446d***********-a3d0-62fb67a8985e",
+}
+# Response
+{
+  "result"："true",
+  "transaction"：[
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "5976ed05-6141-4fea-bcd5-179fa7a1fa56",
+      "tradeType": "sell",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    },
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "d65d4302-a4ff-4578-aa6b-6717758fb8c2",
+      "tradeType": "buy",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000002
+    },
+    {
+      "txUuid": "bebadd0f953747d88d1e3181bba36f12",
+      "orderUuid": "e0465949-12c2-4b87-87fa-12847a324a09",
+      "tradeType": "sell",
+      "dealTime": 1562575780302,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    }
+  ]
+}
+```
+返回值说明	
+
+
+|字段|描述|
+|-|-|
+|result | `true` 成功<br>`false` 失败|
+|txUuid|交易编号|
+|orderUuid|订单ID|
+|tradeType|`buy`：买入<br>`sell`：卖出|
+|dealTime|成交时间| 
+|dealPrice|成交价格| 
+|dealQuantity|成交数量|
+|dealVolumePrice|成交额|
+|tradeFee|交易手续费|
+|tradeFeeRate|交易手续费率|
+
+
+8.获取所有币对的基本信息
 
 请求参数：`无`
 
@@ -335,7 +480,7 @@ GET https://www.lbkex.net/v1/accuracy.do
 |symbol|交易对|
 
 
-5.获取用户开放订单（仅支持查最近两天内的开放订单）
+9.获取用户开放订单（仅支持查最近两天内的开放订单）
 
 请求参数：
 
@@ -404,7 +549,8 @@ POST https://www.lbkex.net/v1/orders_info_no_deal.do
 |symbol | 交易对 |
 |deal_amount|成交数量|
 
-6.美元对人民币的比例（每天0点更新一次）
+
+10.美元对人民币的比例（每天0点更新一次）
 
 请求参数:无
 请求方式：GET
@@ -424,7 +570,8 @@ GET https://www.lbkex.net/v1/usdToCny.do
 |-|-|
 |USD2CNY |美元对人民币的汇率|
 
-7.币种提币参数接口
+
+11.币种提币参数接口
 
 
 请求参数:
@@ -455,7 +602,8 @@ GET https://www.lbkex.net/v1/withdrawConfigs.do
 |canWithDraw |该币种是否可提|
 |fee |提币手续费（数量）|
 
-8.提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+
+12.提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -492,7 +640,7 @@ POST https://www.lbkex.net/v1/withdraw.do
 |fee |提币手续费（数量）|
 
 
-9.撤销提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+13.撤销提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -523,7 +671,7 @@ POST https://www.lbkex.net/v1/withdrawCancel.do
 |withdrawId |当前提币记录编号|
 
 
-10.提币记录接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+14.提币记录接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
