@@ -378,7 +378,7 @@ POST https://www.lbkex.net/v1/order_transaction_detail.do
 |symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |type|String|否|订单类型 sell, buy|
 |start_date|String|否|开始时间 yyyy-mm-dd，最大值为今天，默认为昨天|
-|end_date|String|否|结束时间，yyyy-mm-dd，最大值为今天，默认为今天<br>起始与结束时间的查询窗口最大为2天|
+|end_date|String|否|结束时间 yyyy-mm-dd，最大值为今天，默认为今天<br>起始与结束时间的查询窗口最大为2天|
 |from|String|否|查询的起始交易编号|
 |direct|String|否|查询方向，默认next，成交时间正序，prev为成交时间倒序|
 |size|String|否|查询条数，默认100，[1-100]|
