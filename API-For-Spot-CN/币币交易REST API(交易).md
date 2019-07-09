@@ -25,7 +25,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 
 ### 币币交易 API 
 
-1.获取用户账户资产信息 
+#### 1.获取用户账户资产信息 
 
 
 请求参数	
@@ -74,7 +74,7 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 |free |账户可用余额|
 
 
-2.下单 
+#### 2.下单 
 
 请求参数	
 
@@ -117,7 +117,7 @@ POST https://www.lbkex.net/v1/create_order.do
 |order_id|订单ID| 
 
 
-3.撤销订单 
+#### 3.撤销订单 
 
 请求参数	
 
@@ -160,7 +160,7 @@ POST https://www.lbkex.net/v1/cancel_order.do
 |error|撤单请求失败的订单ID（用于多笔订单）
 
 
-4.查询订单 
+#### 4.查询订单 
 
 请求参数	
 
@@ -230,7 +230,7 @@ POST https://www.lbkex.net/v1/orders_info.do
 |status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
 
 
-5.查询订单历史（仅支持查最近两天内的历史订单）
+#### 5.查询订单历史（仅支持查最近两天内的历史订单）
 
 请求参数	
 
@@ -308,7 +308,7 @@ POST https://www.lbkex.net/v1/orders_info_history.do
 |total|该查询状态的总记录数|
 
 
-6.查询订单成交明细
+#### 6.查询订单成交明细
 
 请求参数	
 
@@ -366,7 +366,7 @@ POST https://www.lbkex.net/v1/order_transaction_detail.do
 |tradeFeeRate|交易手续费率|
 
 
-7.历史成交明细
+#### 7.历史成交明细
 
 请求参数	
 
@@ -450,7 +450,7 @@ POST https://www.lbkex.net/v1/transaction_history.do
 |tradeFeeRate|交易手续费率|
 
 
-8.获取所有币对的基本信息
+#### 8.获取所有币对的基本信息
 
 请求参数：`无`
 
@@ -480,7 +480,7 @@ GET https://www.lbkex.net/v1/accuracy.do
 |symbol|交易对|
 
 
-9.获取用户开放订单（仅支持查最近两天内的开放订单）
+#### 9.获取用户开放订单（仅支持查最近两天内的开放订单）
 
 请求参数：
 
@@ -550,7 +550,7 @@ POST https://www.lbkex.net/v1/orders_info_no_deal.do
 |deal_amount|成交数量|
 
 
-10.美元对人民币的比例（每天0点更新一次）
+#### 10.美元对人民币的比例（每天0点更新一次）
 
 请求参数:无
 请求方式：GET
@@ -571,7 +571,7 @@ GET https://www.lbkex.net/v1/usdToCny.do
 |USD2CNY |美元对人民币的汇率|
 
 
-11.币种提币参数接口
+#### 11.币种提币参数接口
 
 
 请求参数:
@@ -603,7 +603,7 @@ GET https://www.lbkex.net/v1/withdrawConfigs.do
 |fee |提币手续费（数量）|
 
 
-12.提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+#### 12.提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -640,7 +640,7 @@ POST https://www.lbkex.net/v1/withdraw.do
 |fee |提币手续费（数量）|
 
 
-13.撤销提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+#### 13.撤销提币接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
@@ -671,7 +671,7 @@ POST https://www.lbkex.net/v1/withdrawCancel.do
 |withdrawId |当前提币记录编号|
 
 
-14.提币记录接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
+#### 14.提币记录接口 (需要绑定IP,可以在lbank网页端api提现页面申请)
 
 请求参数:
 
