@@ -173,6 +173,8 @@ Such events will be pushed when there are new orders created, new orders dealed 
 |price|Integer|Last price(When the order status is' 1 'or' 2 ' ，it is the   transaction price, and the others are the Delegat price)|
 |orderStatus|Integer|Order status<br/>`-1`：Withdrawn <br/>`0`：Unsettled <br/>`1`： Partial sale<br/>`2`：Close the deal <br/>`4`：Withdrawing|
 |updateTime|Long|Updating time of order|
+
+
 2.Cancel updating subscribed orders
 
 Close pushing order data.
