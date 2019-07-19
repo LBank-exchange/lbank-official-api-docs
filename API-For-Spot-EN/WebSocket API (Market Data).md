@@ -186,7 +186,7 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
         "subscribe":"trade",
         "pair":"eth_btc"
     }
-    # 推送数据
+    # Push data
     {
         "trade":{
             "volume":6.3607,
