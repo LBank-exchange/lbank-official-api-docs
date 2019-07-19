@@ -2,7 +2,7 @@
 
 ## Start use 
 
-* The REST interface listed in this article accesses the root URL：`https://www.lbkex.net/` 或 `https://api.lbkex.com/`
+* The REST interface listed in this article accesses the root URL：`https://www.lbkex.net/` or `https://api.lbkex.com/`
 * Websocket access addresses listed in this article: `wss://www.lbkex.net/ws/V2/`
 
 ## The REST interface is related to the Websocket interface
