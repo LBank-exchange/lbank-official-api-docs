@@ -158,6 +158,7 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
 ```
 
 **Return value specification:**
+
 |Parameters|Parameters Type|Description|
 | :-----    | :-----  | :-----   |
 |asks|List|Selling side: list.get(0): delegated price, list.get(1): delegated quantity|
@@ -212,6 +213,8 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
 |volumePrice|String|Aggregated turnover|
 |direction|String|`sell`,`buy`|
 |TS|String|Deal time|
+
+
 
 4. Market
 
@@ -300,7 +303,7 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
 
     One-time request data is supported by Websocket server.
 
-    1. One-time request to get k-line needs extra parameters defined in following：
+1. One-time request to get k-line needs extra parameters defined in following：
 
 **Parameter:**
 
@@ -312,7 +315,7 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
 
 2. One-time request to get trade records needs extra parameters defined in following：
        
-   **Parameter:**
+**Parameter:**
        
 
 |Parameters|Parameters Type|Required|Description|
