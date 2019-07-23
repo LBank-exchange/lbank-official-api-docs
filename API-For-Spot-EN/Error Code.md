@@ -30,7 +30,9 @@
 |10025|	Order has been filled|
 |10026|	Order has been cancelld|
 |10027|	Order is cancelling |
-|10028|	Trading is paused|
+|10028|	Wrong query time|
+|10029|	'from' is not in the query time|
+|10030|	'from' do not match the  transaction type of inqury|
 |10100|	Has no privilege to withdraw |
 |10101|	Invalid fee rate to withdraw |
 |10102|	Too little to withdraw|
