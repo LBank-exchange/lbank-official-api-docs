@@ -28,9 +28,10 @@ The interaction requests
 
 
 ## API Reference
+
 ### Trading API
 
-1. Acquiring Users' Asset Information
+#### 1. Acquiring Users' Asset Information
 
 
 Parameters	
@@ -78,7 +79,7 @@ Returns
 |free |Available balance of the account|
 
 
-2. Place Order
+#### 2. Place Order
 
 Parameters:
 
@@ -121,7 +122,7 @@ Returns
 |order_id|Order ID| 
 
 
-3. Cancel the Order
+#### 3. Cancel the Order
 
 Parameters:
 
@@ -165,7 +166,8 @@ Returns
 
 
 
-4. Query Order 
+#### 4. Query Order 
+
 Parameters:
 
 
@@ -236,7 +238,7 @@ Returns
 
 
 
-5. Query history order (Only the records in recent two days are available)
+#### 5. Query history order (Only the records in recent two days are available)
 
 Parameters:
 
@@ -314,7 +316,149 @@ Returns
 |total|Total number of records.|
 
 
-6. Acquiring the basic information of all trading pairs
+#### 6.Search order transaction details
+
+Parameters:	
+
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|sign|String|Yes|signature of the request|
+|api_key|String|Yes|User's `api_key`|
+|symbol|String|Yes|Trading Pair，`eth_btc`：Etherum， `zec_btc`：ZCash|
+|order_id|String|Yes|Order ID|
+
+Example
+
+```javascript
+# Request
+POST https://www.lbkex.net/v1/order_transaction_detail.do
+{
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
+  "symbol"："eth_btc",
+  "order_id"："24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23",
+  "sign"："16702619-0bc8-446d***********-a3d0-62fb67a8985e",
+}
+# Response
+{
+  "result"："true",
+  "transaction"：[
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "24f7ce27-af1d-4dca-a8c1-ef1cbeec1b23",
+      "tradeType": "sell",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    }
+  ]
+}
+```
+Returns
+
+
+|Field|Note|
+|-|-|
+|result|`true` on success or `false` on failure|
+|txUuid|Tx ID|
+|orderUuid|Order ID| 
+|tradeType|`buy`：Buy<br>`sell`：Sell
+|dealTime|Trading time| 
+|dealPrice|Trading price| 
+|dealQuantity|Trading volume|
+|dealVolumePrice|Trading amount|
+|tradeFee|Transaction fee|
+|tradeFeeRate|Transaction fee ratio|
+
+
+#### 7.Past transaction details
+
+Parameters:
+
+
+| Parameter|	Type|	Required|	Note|
+| :-----    | :-----   | :-----    | :-----   |
+|sign|String|Yes|signature of the request|
+|api_key|String|Yes|User's `api_key`|
+|symbol|String|Yes|Trading Pair，`eth_btc`：Etherum， `zec_btc`：ZCash|
+|type|String|No|Order type sell, buy|
+|start_date|String|No|Start time yyyy-mm-dd, the maximum is today, the default is yesterday|
+|end_date|String|No|Finish time yyyy-mm-dd, the maximum is today, the default is today<br>The start and end date of the query window is up to 2 days|
+|from|String|No|Initial transaction number inquiring|
+|direct|String|No|inquire direction,The default is the 'next' which  is the positive sequence of dealing time，the 'prev' is inverted order of dealing time|
+|size|String|No|Query the number of defaults to 100|
+
+Example
+
+```javascript
+# Request
+POST https://www.lbkex.net/v1/transaction_history.do
+{
+  "api_key"："16702619-0bc*********0-62fb67a8985e",
+  "symbol"："eth_btc",
+  "sign"："16702619-0bc8-446d***********-a3d0-62fb67a8985e",
+}
+# Response
+{
+  "result"："true",
+  "transaction"：[
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "5976ed05-6141-4fea-bcd5-179fa7a1fa56",
+      "tradeType": "sell",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    },
+    {
+      "txUuid": "ae926ba8f6f44cae8d347a4b7ac90135",
+      "orderUuid": "d65d4302-a4ff-4578-aa6b-6717758fb8c2",
+      "tradeType": "buy",
+      "dealTime": 1562553793113,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000002
+    },
+    {
+      "txUuid": "bebadd0f953747d88d1e3181bba36f12",
+      "orderUuid": "e0465949-12c2-4b87-87fa-12847a324a09",
+      "tradeType": "sell",
+      "dealTime": 1562575780302,
+      "dealPrice": 0.0200000000,
+      "dealQuantity": 0.0001000000,
+      "dealVolumePrice": 0.0000020000,
+      "tradeFee": 0.0000010000,
+      "tradeFeeRate": 0.000001
+    }
+  ]
+}
+```
+Returns	
+
+
+|Field|Note|
+|-|-|
+|result|`true` on success or `false` on failure|
+|txUuid|Tx ID|
+|orderUuid|Order ID| 
+|tradeType|`buy`：Buy<br>`sell`：Sell
+|dealTime|Trading time| 
+|dealPrice|Trading price| 
+|dealQuantity|Trading volume|
+|dealVolumePrice|Trading amount|
+|tradeFee|Transaction fee|
+|tradeFeeRate|Transaction fee ratio|
+
+
+#### 8. Acquiring the basic information of all trading pairs
 
 Parameters:
 None
@@ -344,7 +488,7 @@ Returns
 |priceAccuracy|Price Accuracy|
 |quantityAccuracy|Quantity Accuracy|
 
-6. Acquiring openning orders
+#### 9. Acquiring openning orders
 
 Parameters:
 
@@ -415,7 +559,7 @@ Returns
 |total|Total number of records.|
 
 
-7. Exchange rate of USD/RMB (Update on 00:00 everyday)
+#### 10. Exchange rate of USD/RMB (Update on 00:00 everyday)
 
 Parameters
 
@@ -435,7 +579,7 @@ Returns
 |-|-|
 |USD2CNY |Exchange rate of USD/RMB|
 
-8. Withdraw configurations
+#### 11. Withdraw configurations
 
 Parameters
 
@@ -461,7 +605,7 @@ GET https://api.lbkex.com/v1/withdrawConfigs.do
 |fee |Charged fee for withdrawal（amount）|
 
 
-9. Withdraw (IP binding is required.)
+#### 12. Withdraw (IP binding is required.)
 
 Parameters
 
@@ -494,7 +638,7 @@ Returns
 |fee |Withdrawal fee（amount）|
 
 
-10 Revoke Withdraw (IP binding is required.)
+#### 13. Revoke Withdraw (IP binding is required.)
 
 Parameters
 
@@ -523,7 +667,8 @@ Returns
 |withdrawId |Current withdrawal ID|
 
 
-11. Query Withdrawal Records
+#### 14. Withdrawal record (IP binding is required.)
+
 
 | Parameter|	Type|	Required|	Note|
 | :-----    | :-----   | :-----    | :-----   |
