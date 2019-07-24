@@ -363,13 +363,13 @@ Returns
 |Field|Note|
 |-|-|
 |result|`true` on success or `false` on failure|
-|txUuid|Tx ID|
+|txUuid|Trading ID|
 |orderUuid|Order ID| 
 |tradeType|`buy`：Buy<br>`sell`：Sell
 |dealTime|Trading time| 
 |dealPrice|Trading price| 
 |dealQuantity|Trading volume|
-|dealVolumePrice|Trading amount|
+|dealVolumePrice|Aggregated trading value|
 |tradeFee|Transaction fee|
 |tradeFeeRate|Transaction fee ratio|
 
@@ -447,13 +447,13 @@ Returns
 |Field|Note|
 |-|-|
 |result|`true` on success or `false` on failure|
-|txUuid|Tx ID|
+|txUuid|Trading ID|
 |orderUuid|Order ID| 
 |tradeType|`buy`：Buy<br>`sell`：Sell
 |dealTime|Trading time| 
 |dealPrice|Trading price| 
 |dealQuantity|Trading volume|
-|dealVolumePrice|Trading amount|
+|dealVolumePrice|Aggregated trading value|
 |tradeFee|Transaction fee|
 |tradeFeeRate|Transaction fee ratio|
 
