@@ -89,7 +89,7 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
     
 |Parameters|Parameters Type|Description|
 | :-----    | :-----  | :-----   |
-|t|Long|K-line updates the timestamp|
+|t|String|K-line updates the time|
 |o|BigDecimal|Open price|
 |h|BigDecimal|Highest price|
 |l|BigDecimal|Lowest price|
@@ -332,9 +332,9 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
         "action":"request",
         "request":"kbar",
         "kbar":"5min",
-        "pair":"eth_btc"
-        "start":"2018-08-03T17:32:00"
-        "end":"2018-08-05T17:32:00"
+        "pair":"eth_btc",
+        "start":"2018-08-03T17:32:00",
+        "end":"2018-08-05T17:32:00",
         "size":"576"
     }
     # Get depth data Request
@@ -348,8 +348,8 @@ WebSocket  protocol which achieves full-duplex communications over a  single TCP
     {
         "action":"request",
         "request":"trade",
-        "pair":"eth_btc"
-        "size":"100",
+        "pair":"eth_btc",
+        "size":"100"
     }
     # Get market data Request
     {
