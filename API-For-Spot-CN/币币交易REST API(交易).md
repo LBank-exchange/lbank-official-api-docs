@@ -242,7 +242,7 @@ POST https://www.lbkex.net/v1/orders_info.do
 |symbol|String|是|交易对<br>`eth_btc`:以太坊； `zec_btc`:零币 |
 |current_page|String|是|当前页码|
 |page_length|String|是|每页数据条数（不得小于1,不得大于200）|
-
+|status|String|否|订单状态|
 请求示例:	
 
 ```javascript
@@ -302,7 +302,7 @@ POST https://www.lbkex.net/v1/orders_info_history.do
 |avg_price|平均成交价|
 |type|`buy`：买入<br>`sell`：卖出<br>`buy_market`: 市价单买入（price参数表示要买的量，以基准币计算，不需要amount参数）<br>`sell_market`：市价单卖出（amount参数是卖出的量，以卖出的token计算，不需要price参数）|
 |deal_amount|成交数量|
-|status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交 <br>`4`：撤单处理中
+|status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：部分成交已撤销<br> `3`：完全成交 <br>`4`：撤单处理中
 |current_page|当前页码|
 |page_length|每页数据条数|
 |total|该查询状态的总记录数|
@@ -612,12 +612,13 @@ GET https://www.lbkex.net/v1/withdrawConfigs.do
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|是|用户申请的 `api_key`|
 |sign|String|是|参数签名|
-|account|String|是|提币地址|
+|account|String|是|提币地址，如果是内部转账，是邮箱或者手机用户名|
 |assetCode|String|是|提币币种|
 |amount|String|是|提币数量（对于neo，必须是整数）|
 |memo|String|否|对于bts、dct可能需要|
 |mark|String|否|用户备注(长度小于255)|
 |fee|String|否|提币手续费（单位：数量）|
+|type|String|否|提币类型，1:内部转账，2：正常提现|
 
 请求方式：POST
 
