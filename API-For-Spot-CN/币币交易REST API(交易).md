@@ -302,7 +302,7 @@ POST https://www.lbkex.net/v1/orders_info_history.do
 |avg_price|平均成交价|
 |type|`buy`：买入<br>`sell`：卖出<br>`buy_market`: 市价单买入（price参数表示要买的量，以基准币计算，不需要amount参数）<br>`sell_market`：市价单卖出（amount参数是卖出的量，以卖出的token计算，不需要price参数）|
 |deal_amount|成交数量|
-|status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：部分成交已撤销<br> `3`：完全成交 <br>`4`：撤单处理中
+|status|委托状态<br>`-1`：已撤销 <br>`0`：未成交 <br>`1`： 部分成交<br> `2`：完全成交<br> `3`：部分成交已撤销 <br>`4`：撤单处理中
 |current_page|当前页码|
 |page_length|每页数据条数|
 |total|该查询状态的总记录数|
