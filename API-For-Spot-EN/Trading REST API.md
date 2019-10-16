@@ -250,6 +250,7 @@ Parameters:
 |current_page|String|Yes|Current Page|
 |page_length|String|Yes|The records in a page. No more than 200.|
 |sign|String|Yes|signature of the request|
+|status|String|No|the status of order|
 
 Example
 
@@ -310,7 +311,7 @@ Returns
 |avg_price|Average strike price|
 |type|`buy`：Buy<br>`sell`：Sell
 |deal_amount|filled volume|
-|status|Status<br>`-1`：Cancelled <br>`0`：on trading <br>`1`： filled partially <br> `2`：Filled totally <br>`4`：Cancelling|
+|status|Status<br>`-1`：Cancelled <br>`0`：on trading <br>`1`： filled partially <br> `2`：Filled totally <br> `3`：filled partially and cancelled   <br>`4`：Cancelling|
 |current_page|Current Page|
 |page_length|The page size|
 |total|Total number of records.|
@@ -612,12 +613,13 @@ Parameters
 | Parameter|	Type|	Required|	Note|
 | :-----    | :-----   | :-----    | :-----   |
 |api_key|String|Yes|User's `api_key`|
-|account|String|Yes|Address|
+|account|String|Yes|Address,if internal,this is email or mobile account|
 |assetCode|String|Yes|Asset Code|
 |amount|String|Yes| Amount（Must be integer for NEO）|
 |memo|String|No|Required for BTS and/or DCT|
 |mark|String|No|User's memo.(length <= 255)|
 |sign|String|Yes|signature of the request|
+|type|String|No|withdraw type，1:internal，2：normal|
 
 Example
 
@@ -636,6 +638,7 @@ Returns
 |result |true：success，false：failed|
 |withdrawId |Current withdrawal ID|
 |fee |Withdrawal fee（amount）|
+
 
 
 #### 13. Revoke Withdraw (IP binding is required.)
