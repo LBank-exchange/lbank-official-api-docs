@@ -188,7 +188,7 @@ URL: `https://www.lbkex.net/v1/trades.do`
 |参数名|	参数类型|	必填|	描述|
 | :-----    | :-----   | :-----    | :-----   |
 |symbol|String|是|币对 <br>如 `eth_btc`|
-|size|Integer|否(默认600)|返回的条数(1-600)|
+|size|Integer|是|返回的条数(1-600)|
 |time|String|否|返回时间戳之后 `size` 条数据，为空则返回最新 `size` 条数据|
 
 请求示例
