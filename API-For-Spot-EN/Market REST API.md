@@ -190,7 +190,7 @@ Parameters
 |Name|	Type|	Required|	Description|
 | :-----    | :-----   | :-----    | :-----   |
 |symbol|String|Yes| Trading pair. <br>Such as `eth_btc`|
-|size|Integer|No(Default is 600)|The count of returned items.(1-600)|
+|size|Integer|Yes|The count of returned items.(1-600)|
 |time|String|No|Start transaction timestamp of the querying. Return latest records if it is not provided. |
 
 Example
