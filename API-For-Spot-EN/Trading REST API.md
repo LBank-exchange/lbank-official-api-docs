@@ -238,7 +238,7 @@ Returns
 
 
 
-#### 5. Query history order (Only the records in recent two days are available)
+#### 5. Query history order (Only the records in recent seven days are available)
 
 Parameters:
 
