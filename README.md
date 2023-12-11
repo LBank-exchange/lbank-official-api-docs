@@ -111,7 +111,7 @@ which is signed by MD5 algorithm.
 
 ## API概述    
 
-用户提供简单而又强大的API接口服务，旨在帮助用户快速高效的将 LBank（lbank.info）交易功能整合到自己应用当中。
+用户提供简单而又强大的API接口服务，旨在帮助用户快速高效的将 LBank（lbank.com）交易功能整合到自己应用当中。
 
 通过 `API` 您可以快速实现如下功能   
 > - 市场最新行情    
